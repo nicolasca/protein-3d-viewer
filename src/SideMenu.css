@@ -1,0 +1,33 @@
+.side-menu-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    transition: all 0.2s ease-in-out;
+    transform: translateX(100%);
+    z-index: 10;
+  }
+  
+  .side-menu-wrapper.visible {
+    transform: translateX(0);
+  }
+  
+  .side-menu-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .side-menu-close-button {
+    color: white;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-end;
+    margin: -10px -10px 0 0;
+  }
+  
