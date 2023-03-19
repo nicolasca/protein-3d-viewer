@@ -7,6 +7,7 @@
 }
 
 .container h1 {
+    font-family: 'Rye', cursive;
     background: linear-gradient(to right, #eee, #3ABDD0);
     background-clip: text;
     -webkit-background-clip: text;
@@ -25,7 +26,12 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar > button {
+    width: 5rem;
+    align-self: center;
 }
 
 .content {
