@@ -1,24 +1,23 @@
 // src/App.js
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import logoUrl from '../assets/logo.png'
 import { ProteinRibbon } from './ProteinRibbon';
 import { QueryProtein } from './QueryProtein';
 import { SideMenu } from './SideMenu';
-import styles from './ProteinViewer.module.css';
+import styles from './Viewer.module.css';
 
 export const Visualizer = ({onChangeLocation}) => {
   const [selectedPdbId, setSelectedPdbId] = useState('1CRN');
   const [selectedResidue, setSelectedResidue] = useState(null);
-  const stageRef = useRef();
+  const [selectedColorScheme, setSelectedColorScheme] = useState('uniform');
 
-  const handleChange = (event) => {
+  const han = (event) => {
     setSelectedPdbId(event.target.value);
   };
 
-  const handleResidueSelection = (residue) => {
-    console.log(residue)
+  const handleResidueSelection = useCallback((residue) => {
     setSelectedResidue(residue);
-  };
+  }, [setSelectedResidue]);
 
   const handleMenuClose = () => {
     setSelectedResidue(null);
@@ -26,22 +25,7 @@ export const Visualizer = ({onChangeLocation}) => {
 
   const handleColorSchemeChange = (e) => {
     const colorScheme = e.target.value;
-    console.log(colorScheme)
-
-    // Assuming you have a stage instance set up with NGL
-    const stage = stageRef.current;
-
-    if (stage) {
-      // Remove previous representation (optional)
-      // stage.removeAllRepresentations();
-      console.log(colorScheme)
-      let cartoonRep = stage.getRepresentationsByName("cartoon");
-      cartoonRep.setColor(colorScheme);
-      cartoonRep.update({ color: true });
-
-      // Add a new representation with the selected color scheme
-      // stage.addRepresentation('cartoon', { colorScheme });
-    }
+    setSelectedColorScheme(colorScheme);
   };
 
   return (
@@ -61,7 +45,6 @@ export const Visualizer = ({onChangeLocation}) => {
       </div>
       <div className={styles.content}>
           <ProteinRibbon
-            stageRef={stageRef}
             key={selectedPdbId}
             pdbId={selectedPdbId}
             onResidueSelection={handleResidueSelection}

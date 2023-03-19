@@ -16,7 +16,7 @@
     width: 60%;
     position: relative;
     padding: 1rem;
-    background-color: #060406;
+    background-color: var(--color-dark-bg);
     /* background-image: url('./assets/protein-star.png'); */
     background-repeat: no-repeat;
     background-position: bottom;
@@ -24,6 +24,7 @@
 
 .Right img {
     margin-top: auto;
+    max-height: 45vh;
     filter: drop-shadow(0 50px 34px rgba(226, 103, 30, 0.4));
 }
 
@@ -76,6 +77,7 @@
     justify-content: center;
 
     background: linear-gradient(to right, #eee, #3ABDD0);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
