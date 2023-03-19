@@ -2,8 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import * as NGL from 'ngl';
 import { SideMenu } from './SideMenu';
 
-export const ProteinRibbon = ({ pdbId, onResidueSelection }) => {
-  const stageRef = useRef(null);
+export const ProteinRibbon = ({ pdbId, onResidueSelection, stageRef }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {

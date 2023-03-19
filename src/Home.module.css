@@ -1,0 +1,81 @@
+.Container {
+    width: 100%;
+    height: 100vh;
+    /* Create a display flex with two divs in column, one 75% et the other 25% */
+    display: flex;
+}
+
+.Left {
+    width: 40%;
+    position: relative;
+    background-image: linear-gradient(90deg, rgba(6,4,6,0) 70%, rgba(6,4,6,1) 100%), url('./assets/background-watson.png');
+    background-size: cover;
+}
+
+.Right {
+    width: 60%;
+    position: relative;
+    padding: 1rem;
+    background-color: #060406;
+    /* background-image: url('./assets/protein-star.png'); */
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.Right img {
+    margin-top: auto;
+    filter: drop-shadow(0 50px 34px rgba(226, 103, 30, 0.4));
+}
+
+.Title {
+    /* Flew <with all centered */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    padding: 13px;
+    font-size: 24px;
+    background-color: rgba(6,4,6,0.8);
+}
+
+.CallToAction {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CallToAction .Button {
+    position: absolute;
+    top: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 32px;
+    transition: all 0.2s;
+}
+
+.CallToAction .Button:hover {
+    cursor: pointer;
+    color: #E2671E;
+    border-color: #E2671E
+}
+
+.CallToAction .Text {
+    position: absolute;
+    max-width: 50ch;
+    font-size: 24px;
+    top: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(to right, #eee, #3ABDD0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
