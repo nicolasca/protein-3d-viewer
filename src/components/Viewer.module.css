@@ -1,0 +1,53 @@
+.container {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 150px clamp(300px,80%, 1400px);
+    height: calc(100vh - 100px);
+    padding: 0 1rem;
+}
+
+.container h1 {
+    font-family: 'Rye', cursive;
+    background: linear-gradient(to right, #eee, #3ABDD0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.top {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-left: 1rem;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar > button {
+    width: 5rem;
+    align-self: center;
+}
+
+.content {
+    position: relative;
+}
+
+.queryContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.colorSchemeDropdown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+  }

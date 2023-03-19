@@ -1,5 +1,0 @@
-// src/utils/proteinUtils.js
-
-
-
-
