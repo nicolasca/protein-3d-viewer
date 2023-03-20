@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import styles from './Home.module.css'
 import watsonUrl from './assets/background-watson.png'
 import proteinUrl from './assets/protein-star-alone.png'
 
-export const Home = ({onChangeLocation}) => {
+export const Home = forwardRef(({onChangeLocation}, ref) => {
     return (
         <div className={styles.Container}>
             {/* Add two images with one 75% of width et 25% for the other */}
@@ -19,6 +19,6 @@ export const Home = ({onChangeLocation}) => {
             </div>
         </div >
     )
-}
+})
 
 

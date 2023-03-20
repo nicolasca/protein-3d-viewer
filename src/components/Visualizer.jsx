@@ -1,15 +1,15 @@
 // src/App.js
-import React, { useCallback, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useRef, useState } from 'react';
 import logoUrl from '../assets/logo.png'
 import { ProteinRibbon } from './ProteinRibbon';
 import { QueryProtein } from './QueryProtein';
-import { SideMenu } from './SideMenu';
+import { SideMenu } from './SideMenu/SideMenu';
 import styles from './Viewer.module.css';
 
-export const Visualizer = ({onChangeLocation}) => {
+export const Visualizer = forwardRef(({onChangeLocation}, ref) => {
   const [selectedPdbId, setSelectedPdbId] = useState('1CRN');
   const [selectedResidue, setSelectedResidue] = useState(null);
-  const [selectedColorScheme, setSelectedColorScheme] = useState('uniform');
+  const [selectedColorScheme, setSelectedColorScheme] = useState('resname');
 
   const han = (event) => {
     setSelectedPdbId(event.target.value);
@@ -31,12 +31,10 @@ export const Visualizer = ({onChangeLocation}) => {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        {/* Add your logo and title here */}
         <img src={logoUrl} alt="Logo" height="50px" onClick={() => onChangeLocation("home")}/>
         <h1>Protein Viewer</h1>
       </div>
       <div className={styles.sidebar}>
-        {/* Add example buttons here */}
         <div>Try one example</div>
         <button onClick={() => setSelectedPdbId('1CRN')}>1CRN</button>
         <button onClick={() => setSelectedPdbId('1F88')}>1F88</button>
@@ -47,9 +45,9 @@ export const Visualizer = ({onChangeLocation}) => {
           <ProteinRibbon
             key={selectedPdbId}
             pdbId={selectedPdbId}
+            colorScheme={selectedColorScheme}
             onResidueSelection={handleResidueSelection}
           />
-        {/* Add the QueryProtein component here */}
         <div className={styles.queryContainer}>
           <QueryProtein onPDBSelection={setSelectedPdbId} />
         </div>
@@ -58,14 +56,11 @@ export const Visualizer = ({onChangeLocation}) => {
           className={styles.colorSchemeDropdown}
           onChange={handleColorSchemeChange}
         >
-          <option value="uniform">Uniform</option>
+          <option value="resname">Resname</option>
           <option value="random">Random</option>
-          <option value="atomindex">Atom Index</option>
           <option value="residueindex">Residue Index</option>
           <option value="chainindex">Chain Index</option>
-          <option value="modelindex">Model Index</option>
           <option value="sstruc">Secondary Structure</option>
-          {/* Add more color schemes as needed */}
         </select>
       </div>
       <SideMenu selectedResidue={selectedResidue} onClose={handleMenuClose} />
@@ -73,4 +68,4 @@ export const Visualizer = ({onChangeLocation}) => {
     </div>
   );
 
-};
+});
